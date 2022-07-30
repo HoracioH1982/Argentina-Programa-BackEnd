@@ -1,16 +1,24 @@
 package com.proyecto.portfolio.controller;
 
 import com.proyecto.portfolio.model.Educacion;
+import com.proyecto.portfolio.model.ExperienciaLaboral;
 import com.proyecto.portfolio.model.Habilidades;
 import com.proyecto.portfolio.model.NombreHabilidad;
+import com.proyecto.portfolio.model.NombreRedSocial;
 import com.proyecto.portfolio.model.Persona;
 import com.proyecto.portfolio.model.Proyectos;
+import com.proyecto.portfolio.model.RedesSociales;
+import com.proyecto.portfolio.model.TipoEmpleo;
 import com.proyecto.portfolio.model.Usuario;
 import com.proyecto.portfolio.service.EducacionService;
+import com.proyecto.portfolio.service.ExperienciaLaboralService;
 import com.proyecto.portfolio.service.HabilidadesService;
 import com.proyecto.portfolio.service.NombreHabilidadService;
+import com.proyecto.portfolio.service.NombreRedSocialService;
 import com.proyecto.portfolio.service.PersonaService;
 import com.proyecto.portfolio.service.ProyectosService;
+import com.proyecto.portfolio.service.RedesSocialesService;
+import com.proyecto.portfolio.service.TipoEmpleoService;
 import com.proyecto.portfolio.service.UsuarioService;
 import java.util.Date;
 import java.util.List;
@@ -226,8 +234,135 @@ public class Controller {
         return proye;
     }
 
+    //Controller Redes Sociales    
+    @Autowired
+    private RedesSocialesService redS;
 
-    /*
-    */
+    @GetMapping("ver/redes")
+    @ResponseBody
+    public List<RedesSociales> verRedesSociales() {
+        return redS.verRedesSociales();
+    }
+    
+    @PostMapping("new/red")
+    public void saveRedesSociales(@RequestBody RedesSociales reds) {
+        redS.saveRedesSociales(reds);
+    }
 
+    @DeleteMapping("borrar/red/{id}")
+    public void deleteRedesSociales(@PathVariable Long id) {
+        redS.deleteRedesSociales(id);
+    }
+
+    @GetMapping("buscar/red/{id}")
+    public RedesSociales findRedesSociales(@PathVariable Long id) {
+        return redS.findRedesSociales(id);
+    }
+
+    @PutMapping("editar/red/{id}")
+    public RedesSociales editarRedesSociales(@PathVariable Long id,
+                                 @RequestBody RedesSociales redso){
+        redS.findRedesSociales(id);
+        redS.editarRedesSociales(redso);
+        return redso;
+    }
+
+    //Controller NombreRedSocial   
+    @Autowired
+    private NombreRedSocialService nredS;
+
+    @GetMapping("ver/nombrered")
+    @ResponseBody
+    public List<NombreRedSocial> verNombreRedSocial() {
+        return nredS.verNombreRedSocial();
+    }
+    
+    @PostMapping("new/nombrered")
+    public void saveNombreRedSocial(@RequestBody NombreRedSocial nrs) {
+        nredS.saveNombreRedSocial(nrs);
+    }
+
+    @DeleteMapping("borrar/nombrered/{id}")
+    public void deleteNombreRedSocial(@PathVariable Long id) {
+       nredS.deleteNombreRedSocial(id);
+    }
+
+    @GetMapping("buscar/nombrered/{id}")
+    public NombreRedSocial findNombreRedSocial(@PathVariable Long id) {
+        return nredS.findNombreRedSocial(id);
+    }
+
+    @PutMapping("editar/nombrered/{id}")
+    public NombreRedSocial editarNombreRedSocial(@PathVariable Long id,
+                                 @RequestBody NombreRedSocial redso){
+        nredS.findNombreRedSocial(id);
+        nredS.editarNombreRedSocial(redso);
+        return redso;
+    }
+
+    //Controller ExperienciaLaboral   
+    @Autowired
+    private ExperienciaLaboralService expS;
+
+    @GetMapping("ver/experiencia")
+    @ResponseBody
+    public List<ExperienciaLaboral> verExperienciaLaboral() {
+        return expS.verExperienciaLaboral();
+    }
+    
+    @PostMapping("new/experiencia")
+    public void saveExperienciaLaboral(@RequestBody ExperienciaLaboral exp) {
+        expS.saveExperienciaLaboral(exp);
+    }
+
+    @DeleteMapping("borrar/experiencia/{id}")
+    public void deleteExperienciaLaboral(@PathVariable Long id) {
+        expS.deleteExperienciaLaboral(id);
+    }
+
+    @GetMapping("buscar/experiencia/{id}")
+    public ExperienciaLaboral findExperienciaLaboral(@PathVariable Long id) {
+        return expS.findExperienciaLaboral(id);
+    }
+
+    @PutMapping("editar/experiencia/{id}")
+    public ExperienciaLaboral editarExperienciaLaboral(@PathVariable Long id,
+                                 @RequestBody ExperienciaLaboral expl){
+        expS.findExperienciaLaboral(id);
+        expS.editarExperienciaLaboral(expl);
+        return expl;
+    }
+
+    //Controller TipoEmpleo    
+    @Autowired
+    private TipoEmpleoService tipoeS;
+
+    @GetMapping("ver/tipoempleo")
+    @ResponseBody
+    public List<TipoEmpleo> verTipoEmpleo() {
+        return tipoeS.verTipoEmpleo();
+    }
+    
+    @PostMapping("new/tipoempleo")
+    public void saveTipoEmpleo(@RequestBody TipoEmpleo tipo) {
+        tipoeS.saveTipoEmpleo(tipo);
+    }
+
+    @DeleteMapping("borrar/tipoempleo/{id}")
+    public void deleteTipoEmpleo(@PathVariable Long id) {
+        tipoeS.deleteTipoEmpleo(id);
+    }
+
+    @GetMapping("buscar/tipoempleo/{id}")
+    public TipoEmpleo findTipoEmpleo(@PathVariable Long id) {
+        return tipoeS.findTipoEmpleo(id);
+    }
+
+    @PutMapping("editar/tipoempleo/{id}")
+    public TipoEmpleo editarTipoEmpleo(@PathVariable Long id,
+                                 @RequestBody TipoEmpleo tipoe){
+        tipoeS.findTipoEmpleo(id);
+        tipoeS.editarTipoEmpleo(tipoe);
+        return tipoe;
+    }
 }

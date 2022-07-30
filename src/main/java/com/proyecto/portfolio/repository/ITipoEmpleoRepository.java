@@ -1,6 +1,11 @@
 
 package com.proyecto.portfolio.repository;
 
-public interface ITipoEmpleoRepository {
+import com.proyecto.portfolio.model.TipoEmpleo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ITipoEmpleoRepository extends JpaRepository <TipoEmpleo, Long> {
     
 }

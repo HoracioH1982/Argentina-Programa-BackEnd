@@ -41,6 +41,4 @@ public class PersonaService implements IPersonaService {
     public void editarPersona(Persona p) {
         perso.save(p);
     }
-    
-    
 }
