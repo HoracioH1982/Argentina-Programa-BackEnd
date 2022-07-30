@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class NombreRedSocialService {
     
-    @Autowired
-    private INombreRedSocialRepository nombreRed;
+    //@Autowired
+    //private INombreRedSocialRepository nombreRed;
     
 }

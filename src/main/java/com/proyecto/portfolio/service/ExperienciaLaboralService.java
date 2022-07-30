@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ExperienciaLaboralService {
     
-    @Autowired
-    private IExperienciaLaboralRepository experiencia;
+    //@Autowired
+    //private IExperienciaLaboralRepository experiencia;
     
 }

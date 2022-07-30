@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TipoEmpleoService {
     
-    @Autowired
-    private ITipoEmpleoRepository tipoEmpleo;
+    //@Autowired
+    //private ITipoEmpleoRepository tipoEmpleo;
     
 }

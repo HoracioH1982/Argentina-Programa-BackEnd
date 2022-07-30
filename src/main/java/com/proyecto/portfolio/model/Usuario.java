@@ -21,7 +21,7 @@ public class Usuario {
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     
     @Column(name="id")
-    private int id;
+    private Long id;
     @Column(name="email")
     private String email;
     @Column(name="password")
@@ -42,7 +42,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(int id, String email, String password, String deviceInfo, String deviceType, String notificationToken, Persona persona_id) {
+    public Usuario(Long id, String email, String password, String deviceInfo, String deviceType, String notificationToken, Persona persona_id) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -51,5 +51,7 @@ public class Usuario {
         this.notificationToken = notificationToken;
         this.persona_id = persona_id;
     }
+
+    
     
 }
