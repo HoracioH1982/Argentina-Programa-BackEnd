@@ -1,10 +1,16 @@
 package com.proyecto.portfolio.controller;
 
 import com.proyecto.portfolio.model.Educacion;
+import com.proyecto.portfolio.model.Habilidades;
+import com.proyecto.portfolio.model.NombreHabilidad;
 import com.proyecto.portfolio.model.Persona;
+import com.proyecto.portfolio.model.Proyectos;
 import com.proyecto.portfolio.model.Usuario;
 import com.proyecto.portfolio.service.EducacionService;
+import com.proyecto.portfolio.service.HabilidadesService;
+import com.proyecto.portfolio.service.NombreHabilidadService;
 import com.proyecto.portfolio.service.PersonaService;
+import com.proyecto.portfolio.service.ProyectosService;
 import com.proyecto.portfolio.service.UsuarioService;
 import java.util.Date;
 import java.util.List;
@@ -88,8 +94,7 @@ public class Controller {
         return educ;
     }
     
-    //controller Usuario
-   
+    //controller Usuario   
     @Autowired
     private UsuarioService userS;
 
@@ -121,7 +126,108 @@ public class Controller {
         userS.editarUsuario(usua);
         return usua;
     }
-    /*
+
+    //Controller Habilidades    
+    @Autowired
+    private HabilidadesService habiS;
+
+    @GetMapping("ver/habilidades")
+    @ResponseBody
+    public List<Habilidades> verHabilidades() {
+        return habiS.verHabilidades();
+    }
     
+    @PostMapping("new/habilidad")
+    public void saveHabilidades(@RequestBody Habilidades hab) {
+        habiS.saveHabilidades(hab);
+    }
+
+    @DeleteMapping("borrar/habilidad/{id}")
+    public void deleteHabilidades(@PathVariable Long id) {
+        habiS.deleteHabilidades(id);
+    }
+
+    @GetMapping("buscar/habilidad/{id}")
+    public Habilidades findHabilidades(@PathVariable Long id) {
+        return habiS.findHabilidades(id);
+    }
+
+    @PutMapping("editar/habilidad/{id}")
+    public Habilidades editarHabilidades(@PathVariable Long id,
+                                 @RequestBody Habilidades habil){
+        habiS.findHabilidades(id);
+        habiS.editarHabilidades(habil);
+        return habil;
+    }
+
+    //Controller NombreHabilidad    
+    @Autowired
+    private NombreHabilidadService nhabS;
+
+    @GetMapping("ver/nombrehab")
+    @ResponseBody
+    public List<NombreHabilidad> verNombreHabilidad() {
+        return nhabS.verNombreHabilidad();
+    }
+    
+    @PostMapping("new/nombrehab")
+    public void saveNombreHabilidad(@RequestBody NombreHabilidad nhab) {
+        nhabS.saveNombreHabilidad(nhab);
+    }
+
+    @DeleteMapping("borrar/nombrehab/{id}")
+    public void deleteNombreHabilidad(@PathVariable Long id) {
+        nhabS.deleteNombreHabilidad(id);
+    }
+
+    @GetMapping("buscar/nombrehab/{id}")
+    public NombreHabilidad findNombreHabilidad(@PathVariable Long id) {
+        return nhabS.findNombreHabilidad(id);
+    }
+
+    @PutMapping("editar/nombrehab/{id}")
+    public NombreHabilidad editarNombreHabilidad(@PathVariable Long id,
+                                 @RequestBody NombreHabilidad nhabi){
+        nhabS.findNombreHabilidad(id);
+        nhabS.editarNombreHabilidad(nhabi);
+        return nhabi;
+    } 
+
+    //Controller Proyectos    
+    @Autowired
+    private ProyectosService proyS;
+
+    @GetMapping("ver/proyectos")
+    @ResponseBody
+    public List<Proyectos> verProyectos() {
+        return proyS.verProyectos();
+    }
+    
+    @PostMapping("new/proyecto")
+    public void saveProyectos(@RequestBody Proyectos proy) {
+        proyS.saveProyectos(proy);
+    }
+
+    @DeleteMapping("borrar/proyectos/{id}")
+    public void deleteProyectos(@PathVariable Long id) {
+        proyS.deleteProyectos(id);
+    }
+
+    @GetMapping("buscar/proyectos/{id}")
+    public Proyectos findProyectos(@PathVariable Long id) {
+        return proyS.findProyectos(id);
+    }
+
+    @PutMapping("editar/proyectos/{id}")
+    public Proyectos editarProyectos(@PathVariable Long id,
+                                 @RequestBody Proyectos proye){
+        proyS.findProyectos(id);
+        proyS.editarProyectos(proye);
+        return proye;
+    }
+
+
+    /*
     */
+
 }
