@@ -23,7 +23,7 @@ import lombok.Setter;
 @Table(name="persona")
 public class Persona {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
     @Column(name="nombres")

@@ -18,7 +18,7 @@ import lombok.Setter;
 @Table(name="habilidades")
 public class Habilidades {
     @Id
-    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     @Column(name="id")
     private Long id;
