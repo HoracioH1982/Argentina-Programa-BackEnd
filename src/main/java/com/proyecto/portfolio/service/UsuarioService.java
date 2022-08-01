@@ -41,4 +41,5 @@ public class UsuarioService implements IUsuarioService {
     public void editarUsuario(Usuario usua) {
     user.save(usua);    
     }
-}
+
+ }

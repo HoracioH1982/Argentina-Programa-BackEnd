@@ -137,6 +137,7 @@ public class Controller {
         userS.editarUsuario(usua);
         return usua;
     }
+    
 
     //Controller Habilidades    
     @Autowired
